@@ -1,4 +1,4 @@
-package PostsTests;
+package PhotosTests;
 
 import io.restassured.response.Response;
 import org.apache.http.HttpStatus;

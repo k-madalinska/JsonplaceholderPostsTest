@@ -1,4 +1,4 @@
-package PostsTests;
+package PhotosTests;
 
 public class BaseTest {
 

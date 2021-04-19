@@ -1,4 +1,4 @@
-package PostsTests;
+package PhotosTests;
 
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;

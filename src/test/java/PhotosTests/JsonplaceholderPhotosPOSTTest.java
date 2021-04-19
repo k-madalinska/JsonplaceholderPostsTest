@@ -1,4 +1,4 @@
-package PostsTests;
+package PhotosTests;
 
 import com.github.javafaker.Faker;
 import io.restassured.path.json.JsonPath;
