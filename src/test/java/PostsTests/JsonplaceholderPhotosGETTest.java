@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class JsonplaceholderPhotosGETTest extends BaseTest {
 
     @Test
-    public void jsonplaceholderReadAllPhotos() {
+    public void jsonplaceholderReadInformationOfAllPhotos() {
         Response response = given()
                 .when()
                 .get(BASE_URL + "/" + PHOTOS)
@@ -29,7 +29,7 @@ public class JsonplaceholderPhotosGETTest extends BaseTest {
     }
 
     @Test
-    public void jsonplaceholderReadOnePhoto() {
+    public void jsonplaceholderReadInformationOfFirstPhoto() {
         Response response = given()
                 .pathParam("postId", 1)
                 .when()

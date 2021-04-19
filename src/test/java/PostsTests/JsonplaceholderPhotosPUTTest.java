@@ -10,9 +10,9 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class JsonplaceholderPhotosPOSTTest extends BaseTest {
+public class JsonplaceholderPhotosPUTTest extends BaseTest {
 
     private static Faker faker;
     private Integer fakeAlbumId;
@@ -37,7 +37,7 @@ public class JsonplaceholderPhotosPOSTTest extends BaseTest {
 
 
     @Test
-    public void JsonplaceholderCreateNewPhoto() {
+    public void JsonplaceholderChangeAllInformationInFirstPhoto() {
         JSONObject photo = new JSONObject();
         photo.put("albumId", fakeAlbumId);
         photo.put("title", fakeAlbumTitle);
@@ -48,14 +48,34 @@ public class JsonplaceholderPhotosPOSTTest extends BaseTest {
                 .contentType("application/json")
                 .body(photo.toString())
                 .when()
-                .post(BASE_URL + "/" + PHOTOS)
+                .put(BASE_URL + "/" + PHOTOS + "/" + 1)
                 .then()
-                .statusCode(HttpStatus.SC_CREATED)
+                .statusCode(HttpStatus.SC_OK)
                 .extract()
                 .response();
 
         JsonPath json = response.jsonPath();
         assertEquals(fakeAlbumTitle, json.get("title"));
         assertEquals(fakeWWW, json.get("url"));
+    }
+
+    @Test
+    public void JsonplaceholderChangeTitleOfFirstPhoto() {
+        JSONObject photo = new JSONObject();
+        photo.put("title", fakeAlbumTitle);
+
+
+        Response response = given()
+                .contentType("application/json")
+                .body(photo.toString())
+                .when()
+                .put(BASE_URL + "/" + PHOTOS + "/" + 1)
+                .then()
+                .statusCode(HttpStatus.SC_OK)
+                .extract()
+                .response();
+
+        JsonPath json = response.jsonPath();
+        assertEquals(fakeAlbumTitle, json.get("title"));
     }
 }
