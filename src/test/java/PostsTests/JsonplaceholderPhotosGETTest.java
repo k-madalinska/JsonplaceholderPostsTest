@@ -10,13 +10,13 @@ import java.util.List;
 import static io.restassured.RestAssured.given;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class JsonplaceholderPostsGETTest extends BaseTest {
+public class JsonplaceholderPhotosGETTest extends BaseTest {
 
     @Test
     public void jsonplaceholderReadAllPhotos() {
         Response response = given()
                 .when()
-                .get(BASE_URL + "/" + POSTS)
+                .get(BASE_URL + "/" + PHOTOS)
                 .then()
                 .statusCode(HttpStatus.SC_OK)
                 .extract()
@@ -33,7 +33,7 @@ public class JsonplaceholderPostsGETTest extends BaseTest {
         Response response = given()
                 .pathParam("postId", 1)
                 .when()
-                .get(BASE_URL + "/" + POSTS + "/{postId}")
+                .get(BASE_URL + "/" + PHOTOS + "/{postId}")
                 .then()
                 .statusCode(HttpStatus.SC_OK)
                 .extract()
