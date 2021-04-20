@@ -23,9 +23,9 @@ public class JsonplaceholderPhotosGETTest extends BaseTest {
                 .response();
 
         JsonPath json = response.jsonPath();
-        List<String> posts = json.getList("names");
-        assertEquals(5000, posts.size());
-        System.out.println(posts.size());
+        List<String> photos = json.getList("names");
+        assertEquals(5000, photos.size());
+        System.out.println(photos.size());
     }
 
     @Test
